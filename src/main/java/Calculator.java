@@ -1,11 +1,6 @@
 import Exceprions.InputAIsZeroException;
 import Exceprions.PlausabilityException;
 
-import java.math.RoundingMode;
-import java.text.NumberFormat;
-import java.util.Locale;
-import java.util.PriorityQueue;
-
 public class Calculator {
 
     public static Float[] calculateQuadraticEquation (float a, float b, float c) throws InputAIsZeroException, PlausabilityException {
@@ -22,11 +17,11 @@ public class Calculator {
             }else if (discriminante > 0){
                 result1 = (-b + Math.sqrt(discriminante))/(2*a);
                 result2 = (-b - Math.sqrt(discriminante))/(2*a);
-                result[0] = new Float(result1);
-                result[1] = new Float(result2);
+                result[0] = (float) result1;
+                result[1] = (float) result2;
             }else if (discriminante == 0){
                 result1 = (-b + Math.sqrt(discriminante))/(2*a);
-                result[0] = new Float(result1);
+                result[0] = (float) result1;
             }
         }
         return result;

@@ -57,7 +57,7 @@ public class Main {
             }
         }
         for (float f : result){
-//            System.out.println(String.format("%.10f", f));
+            System.out.println(String.format("%.10f", f));
             System.out.println(f);
 
 
