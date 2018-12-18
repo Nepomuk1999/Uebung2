@@ -69,4 +69,21 @@ public class MethodTests {
         assertEquals("Unexpected exception",false, exceptionThrown);
         assertEquals("If the discriminant is 0 the 2nd entry of the array is null", null, result[1]);
     }
+
+//    Test fails after 500 Millis.
+    @Test(timeout = 500)
+    public void testExecutionTime(){
+        float  a = 1;
+        float b = 2;
+        float c = 1;
+        Float[] result = null;
+
+        try {
+            result = Calculator.calculateQuadraticEquation(a,b,c);
+        } catch (InputAIsZeroException e) {
+            e.printStackTrace();
+        } catch (PlausabilityException e) {
+            e.printStackTrace();
+        }
+    }
 }
