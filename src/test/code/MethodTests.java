@@ -77,7 +77,7 @@ public class MethodTests {
         float b = 2;
         float c = 1;
         Float[] result = null;
-
+        long start = System.currentTimeMillis();
         try {
             result = Calculator.calculateQuadraticEquation(a,b,c);
         } catch (InputAIsZeroException e) {
@@ -85,5 +85,7 @@ public class MethodTests {
         } catch (PlausabilityException e) {
             e.printStackTrace();
         }
+        long end = System.currentTimeMillis();
+        System.out.println("DEBUG: Logic A took " + (end - start) + " MilliSeconds");
     }
 }
