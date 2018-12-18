@@ -1,4 +1,4 @@
-package Exceprions;
+package TheCalculator.Exception;
 
 public class PlausabilityException extends Exception {
 
