@@ -88,4 +88,5 @@ public class MethodTests {
         long end = System.currentTimeMillis();
         System.out.println("DEBUG: Methode took " + (end - start) + " MilliSeconds to execute");
     }
+
 }

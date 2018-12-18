@@ -10,42 +10,38 @@ public class Main {
         BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
         boolean inputOk = false;
         boolean resultOk = false;
-        float a = 0;
-        float b = 0;
-        float c = 0;
+        Float a = null;
+        Float b = null;
+        Float c = null;
         Float[] result = new Float[2];
 
         while (!resultOk){
             inputOk = false;
             while (!inputOk) {
                 System.out.print("Please enter your 'a' > 0:");
-                try {
-                    a = readNumericLine(reader);
+                a = readNumericLine(reader);
+                if (a != null) {
                     if (a > 0) {
                         inputOk = true;
                     }
-                } catch (IOException e) {
-                    e.printStackTrace();
                 }
+
             }
             inputOk = false;
             while (!inputOk) {
                 System.out.print("Please enter your 'b':");
-                try {
-                    b = readNumericLine(reader);
+                b = readNumericLine(reader);
+                if (b != null) {
                     inputOk = true;
-                } catch (IOException e) {
-                    System.out.println();
-                }
-            }
+                }            }
             inputOk = false;
+
             while (!inputOk) {
                 System.out.print("Please enter your 'c':");
-                try {
-                    c = readNumericLine(reader);
+
+                c = readNumericLine(reader);
+                if (c != null) {
                     inputOk = true;
-                } catch (IOException e) {
-                    e.printStackTrace();
                 }
             }
 
@@ -54,22 +50,33 @@ public class Main {
                 result = Calculator.calculateQuadraticEquation(a, b, c);
                 resultOk = true;
             } catch (Exception e) {
-                e.printStackTrace();
                 System.out.println(e.getMessage());
             }
         }
         for (float f : result){
             System.out.println(String.format("%.10f", f));
-            System.out.println(f);
-
-
         }
     }
 
 
-    private static Float readNumericLine(BufferedReader reader) throws IOException {
-        Float input;
-        input = Float.parseFloat(reader.readLine());
-        return input;
+    private static Float readNumericLine(BufferedReader reader){
+        Float fl;
+        String input = "";
+
+        try {
+            input =reader.readLine();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        //Replace ',' with '.'
+        input = input.replace(",", ".");
+        //Check if input is real
+        if (input.matches("[+-]?([0-9]*[.])?[0-9]+")){
+            fl = Float.parseFloat(input);
+        } else {
+            System.out.println("Pleas enter real number!!");
+            fl = null;
+        }
+        return fl;
     }
 }
