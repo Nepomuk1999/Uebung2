@@ -86,7 +86,7 @@ public class MethodTests {
             e.printStackTrace();
         }
         long end = System.currentTimeMillis();
-        System.out.println("DEBUG: Methode took " + (end - start) + " MilliSeconds to execute");
+        assertEquals("Execution time < 500 milliseconds",true, (end - start) < 500);
     }
 
 }
